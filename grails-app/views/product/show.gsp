@@ -1,5 +1,6 @@
 
 <%@ page import="de.smartsquare.ewerkshop.Product" %>
+<%@ page import="de.smartsquare.ewerkshop.ProductFactsheet" %>
 <!doctype html>
 <html>
 	<head>

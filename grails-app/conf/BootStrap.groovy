@@ -12,6 +12,16 @@ class BootStrap {
     	stichsaege.save()
     	Product kreissaege = new Product(title: 'Kreisi Mega-X', type: typeKreissaege, packagedWeightInGramm: 1890)
     	kreissaege.save()
+
+        ProductFactsheet.collection.getDB().dropDatabase()
+
+    	ProductFactsheet factsStichsaege = new ProductFactsheet(productId: stichsaege.getId(), operatingVoltage: 220, powerInput: 400)
+    	factsStichsaege['bladeLength'] = 8
+    	factsStichsaege.save()
+
+    	ProductFactsheet factsKreissaege = new ProductFactsheet(productId: kreissaege.getId(), operatingVoltage: 220, powerInput: 1200)
+    	factsKreissaege['bladeDiameter'] = 35
+    	factsKreissaege.save()
     }
     def destroy = {
     }
