@@ -1,0 +1,9 @@
+==Was ist EWerkShop?==
+Der EWerkShop ist ein kleines Grails-Projekt, das als Spielwiese für Experimente mit der MongoDB dient. Vor allem geht es um die gemeinsame Verwendung relationaler Persistenz (also Hibernate) gemeinsam mit dokumentenorientierter Persistenz (in diesem Fall mit dem mongodb Plugin).
+
+Mehr Infos gibt es im Blog der Smartsquare: http://www.smartsquare.de/index.php/blog/item/14-polyglotte-persistenz-mit-grails-hibernate-und-mongodb_teil_1
+
+==Kann man die Applikation in Aktion erleben?==
+Sicher. Zuerst eine MongoDB installieren und starten, dann das Repository clonen und mit
+ grails run-app
+die Applikation starten. Viel zu sehen gibt es allerdings nicht, die UI ist fast vollständig gescaffolded und die Daten zum Herumexperimentieren kommen aus ''Bootstrap.groovy''.
