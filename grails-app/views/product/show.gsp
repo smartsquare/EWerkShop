@@ -46,7 +46,7 @@
 				<li class="fieldcontain">
 					<span id="type-label" class="property-label"><g:message code="product.type.label" default="Type" /></span>
 					
-						<span class="property-value" aria-labelledby="type-label"><g:link controller="productType" action="show" id="${productInstance?.type?.id}">${productInstance?.type?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${productInstance.type}" field="title"/></span>
 					
 				</li>
 				</g:if>
