@@ -51,6 +51,42 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${productFactsheet?.operatingVoltage}">
+				<li class="fieldcontain">
+					<span id="voltage-label" class="property-label"><g:message code="productFactsheet.operatingVoltage.label" default="Operating Voltage" /></span>
+					
+						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${productFactsheet}" field="operatingVoltage"/></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${productFactsheet?.powerInput}">
+				<li class="fieldcontain">
+					<span id="voltage-label" class="property-label"><g:message code="productFactsheet.powerInput.label" default="Power Input" /></span>
+					
+						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${productFactsheet}" field="powerInput"/></span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${productFactsheet?.getAt('bladeDiameter')}">
+				<li class="fieldcontain">
+					<span id="bladeDiameter-label" class="property-label"><g:message code="productFactsheet.bladeDiameter.label" default="Blade Diameter" /></span>
+					
+						<span class="property-value" aria-labelledby="type-label">${productFactsheet?.getAt('bladeDiameter')}</span>
+					
+				</li>
+				</g:if>
+				
+				<g:if test="${productFactsheet?.getAt('bladeLength')}">
+				<li class="fieldcontain">
+					<span id="bladeLength-label" class="property-label"><g:message code="productFactsheet.bladeLength.label" default="Blade Length" /></span>
+					
+						<span class="property-value" aria-labelledby="type-label">${productFactsheet?.getAt('bladeLength')}</span>
+					
+				</li>
+				</g:if>
+
 			</ol>
 			<g:form>
 				<fieldset class="buttons">
