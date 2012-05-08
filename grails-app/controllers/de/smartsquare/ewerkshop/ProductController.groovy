@@ -38,7 +38,9 @@ class ProductController {
             return
         }
 
-        [productInstance: productInstance]
+		def productFactsheet = ProductFactsheet.get(productInstance.id)
+		
+        [productInstance: productInstance, productFactsheet: productFactsheet]
     }
 
     def edit() {
