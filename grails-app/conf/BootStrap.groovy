@@ -12,6 +12,8 @@ class BootStrap {
     	stichsaege.save()
     	Product kreissaege = new Product(title: 'Kreisi Mega-X', type: typeKreissaege, packagedWeightInGramm: 1890)
     	kreissaege.save()
+    	kreissaege = new Product(title: 'Kreisi 3000', type: typeKreissaege, packagedWeightInGramm: 1430)
+        kreissaege.save()
 
         ProductFactsheet.collection.getDB().dropDatabase()
 
