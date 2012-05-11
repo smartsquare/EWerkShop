@@ -9,5 +9,6 @@ class ProductFactsheet {
     
     static constraints = {
         productId unique: true
+		operatingVoltage min: 110l, max: 230l
     }
 }
