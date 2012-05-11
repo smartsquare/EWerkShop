@@ -23,6 +23,5 @@
 		<g:message code="product.type.label" default="Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="type" name="type.id" from="${de.smartsquare.ewerkshop.ProductType.list()}" optionKey="id" required="" value="${productInstance?.type?.id}" class="many-to-one"/>
+	<g:select id="type" name="type.id" from="${de.smartsquare.ewerkshop.ProductType.list()}" optionKey="id" optionValue="title"  required="" value="${productInstance?.type?.id}" class="many-to-one"/>
 </div>
-
