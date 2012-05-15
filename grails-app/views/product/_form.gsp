@@ -7,7 +7,7 @@
 		<g:message code="product.packagedWeightInGramm.label" default="Packaged Weight In Gramm" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="number" name="packagedWeightInGramm" required="" value="${fieldValue(bean: productInstance, field: 'packagedWeightInGramm')}"/>
+	<g:field type="long" name="packagedWeightInGramm" required="" value="${fieldValue(bean: productInstance, field: 'packagedWeightInGramm')}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: productInstance, field: 'title', 'error')} ">
