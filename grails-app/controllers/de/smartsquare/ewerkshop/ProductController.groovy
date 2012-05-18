@@ -38,7 +38,7 @@ class ProductController {
             return
         }
 
-		def productFactsheet = ProductFactsheet.get(productInstance.id)
+		def productFactsheet = ProductFactsheet.findByProductId(productInstance.id)
 		
         [productInstance: productInstance, productFactsheet: productFactsheet]
     }
@@ -51,19 +51,20 @@ class ProductController {
             return
         }
 
-        [productInstance: productInstance]
-    }
+		def productFactsheet = ProductFactsheet.findByProductId(productInstance.id)
+		
+        [productInstance: productInstance, productFactsheet: productFactsheet]    }
 
     def update() {
-        def productInstance = Product.get(params.id)
+        def productInstance = Product.get(params.productInstanceId)
         if (!productInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])
+            flash.message = message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.productInstanceId])
             redirect(action: "list")
             return
         }
 
-        if (params.version) {
-            def version = params.version.toLong()
+        if (params.productInstanceVersion) {
+            def version = params.productInstanceVersion.toLong()
             if (productInstance.version > version) {
                 productInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
                           [message(code: 'product.label', default: 'Product')] as Object[],
@@ -79,6 +80,22 @@ class ProductController {
             render(view: "edit", model: [productInstance: productInstance])
             return
         }
+		
+		if (params.productFactsheetId) {
+			def productFactsheetInstance = ProductFactsheet.get(params.productFactsheetId)
+			if (!productFactsheetInstance) {
+				flash.message = message(code: 'default.not.found.message', args: [message(code: 'productFactsheet.label', default: 'ProductFactsheet'), params.id])
+				redirect(action: "list")
+				return
+			}
+		
+	        productFactsheetInstance.properties = params
+	
+	        if (!productFactsheetInstance.save(flush: true)) {
+	            render(view: "edit", model: [productFactsheetInstance: productFactsheetInstance])
+	            return
+	        }
+		}
 
 		flash.message = message(code: 'default.updated.message', args: [message(code: 'product.label', default: 'Product'), productInstance.id])
         redirect(action: "show", id: productInstance.id)
