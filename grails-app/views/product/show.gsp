@@ -69,21 +69,19 @@
 				</li>
 				</g:if>
 				
-				<g:if test="${productFactsheet?.getAt('bladeDiameter')}">
+				<g:if test="${productFactsheet?.getAt('dynBladeDiameter')}">
 				<li class="fieldcontain">
-					<span id="bladeDiameter-label" class="property-label"><g:message code="productFactsheet.bladeDiameter.label" default="Blade Diameter" /></span>
+					<span id="bladeDiameter-label" class="property-label"><g:message code="productFactsheet.dynBladeDiameter.label" default="Blade Diameter" /></span>
 					
-						<span class="property-value" aria-labelledby="type-label">${productFactsheet?.getAt('bladeDiameter')}</span>
+						<span class="property-value" aria-labelledby="type-label">${productFactsheet?.getAt('dynBladeDiameter')}</span>
 					
 				</li>
 				</g:if>
 				
-				<g:if test="${productFactsheet?.getAt('bladeLength')}">
+				<g:if test="${productFactsheet?.getAt('dynBladeLength')}">
 				<li class="fieldcontain">
-					<span id="bladeLength-label" class="property-label"><g:message code="productFactsheet.bladeLength.label" default="Blade Length" /></span>
-					
-						<span class="property-value" aria-labelledby="type-label">${productFactsheet?.getAt('bladeLength')}</span>
-					
+					<span id="bladeLength-label" class="property-label"><g:message code="productFactsheet.dynBladeLength.label" default="Blade Length" /></span>
+						<span class="property-value" aria-labelledby="type-label">${productFactsheet?.getAt('dynBladeLength')}</span>
 				</li>
 				</g:if>
 
