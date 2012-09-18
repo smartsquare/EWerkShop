@@ -1,5 +1,5 @@
 package de.smartsquare.ewerkshop
 
 class ProductType {
-	String title
+    String title
 }
