@@ -1,30 +1,37 @@
-import de.smartsquare.ewerkshop.*
+import de.smartsquare.ewerkshop.Product
+import de.smartsquare.ewerkshop.ProductFactsheet
+import de.smartsquare.ewerkshop.ProductType
+import grails.util.Environment
 
 class BootStrap {
 
     def init = { servletContext ->
-        ProductType typeStichsaege = new ProductType(title: 'Stichsäge')
-    	typeStichsaege.save()
-        ProductType typeKreissaege = new ProductType(title: 'Kreisssäge')
-    	typeKreissaege.save()
-    	
-    	Product stichsaege = new Product(title: 'Stichi 6001', type: typeStichsaege, packagedWeightInGramm: 650)
-    	stichsaege.save()
-    	Product kreissaege1 = new Product(title: 'Kreisi 3000', type: typeKreissaege, packagedWeightInGramm: 1430)
-        kreissaege1.save()
-        Product kreissaege2 = new Product(title: 'Kreisi Mega-X', type: typeKreissaege, packagedWeightInGramm: 1890)
-        kreissaege2.save()
+        if (Environment.current == Environment.DEVELOPMENT) {
 
-        ProductFactsheet.collection.getDB().dropDatabase()
+            ProductType typeStichsaege = new ProductType(title: 'Stichsäge')
+            typeStichsaege.save()
+            ProductType typeKreissaege = new ProductType(title: 'Kreisssäge')
+            typeKreissaege.save()
 
-    	ProductFactsheet factsStichsaege = new ProductFactsheet(productId: stichsaege.getId(), operatingVoltage: 220, powerInput: 400)
-    	factsStichsaege['dynBladeLength'] = 8
-    	factsStichsaege.save()
+            Product stichsaege = new Product(title: 'Stichi 6001', type: typeStichsaege, packagedWeightInGramm: 650)
+            stichsaege.save()
+            Product kreissaege1 = new Product(title: 'Kreisi 3000', type: typeKreissaege, packagedWeightInGramm: 1430)
+            kreissaege1.save()
+            Product kreissaege2 = new Product(title: 'Kreisi Mega-X', type: typeKreissaege, packagedWeightInGramm: 1890)
+            kreissaege2.save()
 
-    	ProductFactsheet factsKreissaege = new ProductFactsheet(productId: kreissaege2.getId(), operatingVoltage: 220, powerInput: 1200)
-    	factsKreissaege['dynBladeDiameter'] = 35
-    	factsKreissaege.save()
+            ProductFactsheet.collection.getDB().dropDatabase()
+
+            ProductFactsheet factsStichsaege = new ProductFactsheet(productId: stichsaege.getId(), operatingVoltage: 220, powerInput: 400)
+            factsStichsaege['dynBladeLength'] = 8
+            factsStichsaege.save()
+
+            ProductFactsheet factsKreissaege = new ProductFactsheet(productId: kreissaege2.getId(), operatingVoltage: 220, powerInput: 1200)
+            factsKreissaege['dynBladeDiameter'] = 35
+            factsKreissaege.save()
+        }
     }
+
     def destroy = {
     }
 }

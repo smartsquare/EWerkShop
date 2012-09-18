@@ -22,6 +22,13 @@ environments {
             dbCreate = "update"
             url = "jdbc:h2:mem:testDb;MVCC=TRUE"
         }
+        grails {
+            mongo {
+                host = "localhost"
+                port = 19321
+                databaseName = "integration_tests"
+            }
+        }
     }
     production {
         dataSource {
@@ -29,14 +36,14 @@ environments {
             url = "jdbc:h2:prodDb;MVCC=TRUE"
             pooled = true
             properties {
-               maxActive = -1
-               minEvictableIdleTimeMillis=1800000
-               timeBetweenEvictionRunsMillis=1800000
-               numTestsPerEvictionRun=3
-               testOnBorrow=true
-               testWhileIdle=true
-               testOnReturn=true
-               validationQuery="SELECT 1"
+                maxActive = -1
+                minEvictableIdleTimeMillis = 1800000
+                timeBetweenEvictionRunsMillis = 1800000
+                numTestsPerEvictionRun = 3
+                testOnBorrow = true
+                testWhileIdle = true
+                testOnReturn = true
+                validationQuery = "SELECT 1"
             }
         }
     }
