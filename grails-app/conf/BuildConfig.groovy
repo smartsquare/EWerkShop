@@ -34,7 +34,7 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         // runtime 'mysql:mysql-connector-java:5.1.16'
-        test 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:1.25'
+        test 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:1.28'
     }
 
     plugins {
